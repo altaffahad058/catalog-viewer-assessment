@@ -40,6 +40,15 @@ function App() {
     }
   }
 
+  /**************************************** FOR PREVIOUS BUTTON ***************************************/
+  function prevImage() {
+    if (catalogsList[activeIndex - 1]) {
+      setActiveIndex(activeIndex - 1);
+    } else {
+      setActiveIndex(catalogsList.length - 1);
+    }
+  }
+
   return (
     <Fragment>
       <h8k-navbar header={title}></h8k-navbar>
@@ -51,6 +60,7 @@ function App() {
               <button
                 className="icon-only outlined"
                 data-testid="prev-slide-btn"
+                onClick={prevImage}
               >
                 <i className="material-icons">arrow_back</i>
               </button>
