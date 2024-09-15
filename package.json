@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "catalog-viewer": "file:",
     "h8k-components": "^1.0.0",
     "h8k-design": "^1.0.16",
     "react": "^18.2.0",
@@ -12,7 +13,7 @@
   "scripts": {
     "pretest": "npm install",
     "prestart": "npm install",
-    "start": "PORT=8000 react-scripts start",
+    "start": "react-scripts start --port 8000",
     "build": "react-scripts build",
     "test": "./node_modules/.bin/react-scripts test --watchAll=false --verbose --env=jsdom --testResultsProcessor ./node_modules/jest-junit",
     "eject": "react-scripts eject"
