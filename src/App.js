@@ -49,6 +49,23 @@ function App() {
     }
   }
 
+  /**************************************** FOR SLIDE SHOW ***************************************/
+  const [checkbox, setCheckbox] = useState(false);
+
+  function onChangeHandlerCheckbox(e) {
+    setCheckbox(e.target.checked);
+  }
+
+  useEffect(() => {
+    if (checkbox) {
+      const interval = setInterval(() => {
+        nextImage();
+      }, slideDuration);
+      //clean-up
+      return () => clearInterval(interval);
+    }
+  }, [checkbox, slideDuration, nextImage]);
+
   return (
     <Fragment>
       <h8k-navbar header={title}></h8k-navbar>
@@ -79,6 +96,8 @@ function App() {
           <input
             type="checkbox"
             data-testid="toggle-slide-show-button"
+            value={checkbox}
+            onChange={onChangeHandlerCheckbox}
           />
           <label className="ml-6">Start Slide Show</label>
         </div>
